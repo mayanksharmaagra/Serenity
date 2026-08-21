@@ -95,12 +95,14 @@ fun CheckInResultScreen(
                 if (isFaceScanActive && faceState.isFaceDetected) {
                     FaceReactionChip(
                         faceScore = faceState.faceScore,
-                        faceLabel = faceState.faceLabel
+                        faceLabel = faceState.faceLabel,
+                        faceEmoji = faceState.faceEmoji
                     )
                 } else {
                     FaceReactionChip(
                         faceScore = if (currentMood.index >= 3) 82 else 45,
-                        faceLabel = if (currentMood.index >= 3) "mostly calm" else "mostly stressed"
+                        faceLabel = if (currentMood.index >= 3) "content" else "neutral",
+                        faceEmoji = if (currentMood.index >= 3) "😌" else "😐"
                     )
                 }
             }

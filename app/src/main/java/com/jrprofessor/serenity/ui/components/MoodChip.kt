@@ -61,6 +61,7 @@ fun MoodChip(
 fun FaceReactionChip(
     faceScore: Int,
     faceLabel: String,
+    faceEmoji: String = "",
     modifier: Modifier = Modifier
 ) {
     val shape = RoundedCornerShape(18.dp)
@@ -77,15 +78,22 @@ fun FaceReactionChip(
             verticalAlignment = Alignment.CenterVertically
         ) {
             Text(
-                text = "Face Reaction:",
+                text = "Face:",
                 style = MaterialTheme.typography.bodyMedium.copy(
                     color = TextSecondary,
                     fontWeight = FontWeight.Medium
                 )
             )
             Spacer(modifier = Modifier.width(6.dp))
+            if (faceEmoji.isNotBlank()) {
+                Text(
+                    text = faceEmoji,
+                    fontSize = 16.sp
+                )
+                Spacer(modifier = Modifier.width(4.dp))
+            }
             Text(
-                text = "$faceScore/100 — $faceLabel",
+                text = "$faceLabel · $faceScore/100",
                 style = MaterialTheme.typography.bodyMedium.copy(
                     color = TextPrimary,
                     fontWeight = FontWeight.SemiBold

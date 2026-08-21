@@ -7,8 +7,11 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 import java.util.Calendar
 import java.util.Date
+import javax.inject.Inject
+import javax.inject.Singleton
 
-class MoodRepository(private val moodDao: MoodDao) {
+@Singleton
+class MoodRepository @Inject constructor(private val moodDao: MoodDao) {
 
     val allEntries: Flow<List<MoodEntry>> = moodDao.getAllEntries().map { list ->
         list.map { it.toDomain() }

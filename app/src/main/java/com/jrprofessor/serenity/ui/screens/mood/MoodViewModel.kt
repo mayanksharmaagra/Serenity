@@ -8,13 +8,16 @@ import com.jrprofessor.serenity.data.model.MoodType
 import com.jrprofessor.serenity.data.repository.MoodRepository
 import com.jrprofessor.serenity.domain.analyzer.FaceAnalysisState
 import com.jrprofessor.serenity.domain.analyzer.MoodJournalAnalyzer
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-class MoodViewModel(
+@HiltViewModel
+class MoodViewModel @Inject constructor(
     private val repository: MoodRepository
 ) : ViewModel() {
 
